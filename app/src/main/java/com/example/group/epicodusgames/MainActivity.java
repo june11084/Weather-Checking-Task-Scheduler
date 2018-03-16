@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == mPlayGames){
             Intent intent = new Intent(MainActivity.this, SelectGameActivity.class);
-            intent.putExtra("message", "you are playing games");
+            intent.putExtra("message", "Game List");
             startActivity(intent);
         } else if (v == mCheckWeather){
-            Toast.makeText(this,"Not Implemented",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Not Implemented",Toast.LENGTH_SHORT).show();
         }
     }
 }

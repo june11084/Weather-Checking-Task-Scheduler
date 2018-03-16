@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +18,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectGameActivity"
-            android:theme="@style/NoActionBarTheme">
+            android:name=".SelectGameActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.group.epicodusgames.MainActivity">
-            </meta-data>
+                android:value="com.example.group.epicodusgames.MainActivity"></meta-data>
+        </activity>
+        <activity android:name=".BoggleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.group.epicodusgames.SelectGameActivity"></meta-data>
         </activity>
     </application>
 
