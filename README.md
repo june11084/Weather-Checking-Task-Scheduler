@@ -7,7 +7,7 @@ Week 1
 1.Epicodus's version of Boggle is a game that:
          * Randomly generates string of 16 letters, with 2 or more letters being vowels.
          * User can make English words from the 8 letters and input it into the blank field below and submit the word for checking.
-            1.The word must be 3 letters or longer, and only contains letters from the generated string.
+            1.The word must be 3 letters or longer, a valid english word, and only contains letters from the generated string.
          * The user can drag-drop to rearrange the string letters for their own convenience.
          * The user can press Enter from the keyboard directly to submit the word, so that the user does not have to hide the keyboard after typing.
          * The user can manually click a button to start a new round/string.
