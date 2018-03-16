@@ -2,8 +2,10 @@ package com.example.group.epicodusgames;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
@@ -19,6 +21,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,20 +37,20 @@ import butterknife.ButterKnife;
 
 public class BoggleActivity extends AppCompatActivity implements View.OnClickListener, TextView.OnEditorActionListener {
     private static final String TAG = "MyActivity";
-    private static final int wordLength = 8;
+    private static final int wordLength = 16;
     String[] alphabets ={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
     String[] vowels = {"a","e","i","o","u"};
     ArrayList<String> word = new ArrayList<>();
     private GridLayout mGrid;
     private Random random;
+    int score = 0;
     CountDownTimer timer;
-    @BindView(R.id.newWord)
-    Button mNewWord;
+    @BindView(R.id.newWord) Button mNewWord;
     @BindView(R.id.submitWord) Button mSubmitWord;
-    @BindView(R.id.wordInput)
-    EditText mEditText;
+    @BindView(R.id.wordInput) EditText mEditText;
     @BindView(R.id.answerLog) TextView mAnswerLog;
     @BindView(R.id.timer) TextView mTimer;
+    @BindView(R.id.wordLog) ListView mWordLog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onBackPressed() {
         timer.cancel();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, SelectGameActivity.class));
     }
 
     @Override
@@ -151,14 +154,13 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         mGrid =  findViewById(R.id.grid_layout);
         final LayoutInflater inflater = LayoutInflater.from(this);
         word.clear();
-        for(int i =0; i <9; i ++){
+        for(int i =0; i <17; i ++){
             if(word.size()<2){
                 word.add(vowels[random.nextInt(vowels.length)]);
             } else {
                 word.add(alphabets[random.nextInt(alphabets.length)]);
             }
         }
-        Collections.shuffle(word);
         for (int i = 0; i < wordLength; i++) {
             final View itemView = inflater.inflate(R.layout.grid_items, mGrid, false);
             final TextView text = (TextView) itemView.findViewById(R.id.text);
@@ -170,8 +172,8 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         startTimer();
     }
 
-    public void startTimer(){
-        timer = new CountDownTimer(20000, 1000) {
+    private void startTimer(){
+        timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 mTimer.setText("seconds remaining: " + millisUntilFinished / 1000);
@@ -179,7 +181,31 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
 
             public void onFinish() {
                 timer.cancel();
-                newGame();
+                AlertDialog.Builder builder = new AlertDialog.Builder(BoggleActivity.this);
+                String finalScore = Integer.toString(score);
+                builder.setMessage(finalScore);
+                builder.setTitle("Your Score is:");
+                builder.setCancelable(true);
+
+                builder.setPositiveButton(
+                        "Done",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                builder.setNegativeButton(
+                        "Play Again",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                                newGame();
+                            }
+                        });
+
+                AlertDialog alert11 = builder.create();
+                alert11.show();
             }
         }.start();
     }
@@ -189,18 +215,20 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         mAnswerLog.setText(null);
         mEditText.setText(null);
         word.clear();
+        score = 0;
         runGame();
     }
 
     private void getResult(){
         mAnswerLog.setText(null);
-        timer.cancel();
         String word = mEditText.getText().toString();
         if(wordCheck(word)){
             mAnswerLog.setText("Correct!");
+            score+=1;
         }else {
             mAnswerLog.setText("False!");
         }
+        mEditText.setText(null);
     }
 
     private boolean wordCheck(String wordToCheck) {
