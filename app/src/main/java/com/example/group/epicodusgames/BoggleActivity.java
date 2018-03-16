@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.DragEvent;
@@ -17,7 +18,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridLayout;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -147,7 +148,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
 
     private void runGame(){
         this.random = new Random(System.currentTimeMillis());
-        mGrid = (GridLayout) findViewById(R.id.grid_layout);
+        mGrid =  findViewById(R.id.grid_layout);
         final LayoutInflater inflater = LayoutInflater.from(this);
         word.clear();
         for(int i =0; i <9; i ++){
@@ -170,7 +171,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void startTimer(){
-        timer = new CountDownTimer(10000, 1000) {
+        timer = new CountDownTimer(20000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 mTimer.setText("seconds remaining: " + millisUntilFinished / 1000);
