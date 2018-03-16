@@ -21,9 +21,12 @@
     <ListView
         android:id="@+id/wordLog"
         android:layout_width="match_parent"
-        android:layout_height="508dp"
+        android:layout_height="90dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
