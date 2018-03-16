@@ -41,6 +41,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
     String[] alphabets ={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
     String[] vowels = {"a","e","i","o","u"};
     ArrayList<String> word = new ArrayList<>();
+    ArrayList<String> usedWords = new ArrayList<>();
     private GridLayout mGrid;
     private Random random;
     int score = 0;
@@ -60,6 +61,8 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         mNewWord.setOnClickListener(this);
         mSubmitWord.setOnClickListener(this);
         mEditText.setOnEditorActionListener(this);
+        BoggleActivityArrayAdapter adapter = new BoggleActivityArrayAdapter(this, android.R.layout.simple_list_item_1, usedWords);
+        mWordLog.setAdapter(adapter);
     }
 
     @Override
@@ -173,7 +176,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void startTimer(){
-        timer = new CountDownTimer(10000, 1000) {
+        timer = new CountDownTimer(60000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 mTimer.setText("seconds remaining: " + millisUntilFinished / 1000);
@@ -216,6 +219,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         mEditText.setText(null);
         word.clear();
         score = 0;
+        usedWords.clear();
         runGame();
     }
 
@@ -224,8 +228,11 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         String word = mEditText.getText().toString();
         if(wordCheck(word)){
             mAnswerLog.setText("Correct!");
+            usedWords.add(word);
             score+=1;
-        }else {
+        }else if(usedWords.contains(word)){
+            mAnswerLog.setText("Duplicate Word!");
+        } else {
             mAnswerLog.setText("False!");
         }
         mEditText.setText(null);
@@ -234,7 +241,6 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
     private boolean wordCheck(String wordToCheck) {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(getAssets().open("localDictionary/usDictionary.txt")));
-            Toast.makeText(BoggleActivity.this,"Checking",Toast.LENGTH_LONG).show();
             String str;
             int invalidWord = 0;
             String joined = TextUtils.join("", word);
@@ -246,8 +252,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
             while ((str = in.readLine()) != null) {
-                if (invalidWord<=0 && wordToCheck.length() >= 3 && str.equals(wordToCheck)) {
-                    Toast.makeText(BoggleActivity.this,str,Toast.LENGTH_LONG).show();
+                if (invalidWord<=0 && wordToCheck.length() >= 3 && str.equals(wordToCheck) && !usedWords.contains(wordToCheck)) {
                     return true;
                 }
             }
