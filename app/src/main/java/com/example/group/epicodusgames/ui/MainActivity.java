@@ -2,6 +2,7 @@ package com.example.group.epicodusgames.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.playGames) Button mPlayGames;
     @BindView(R.id.checkWeather) Button mCheckWeather;
     @BindView(R.id.welcome) TextView mWelcome;
-    @BindView(R.id.weatherATM) TextView MWeatherATM;
+    @BindView(R.id.weatherATM) TextView mWeatherATM;
 
     String weather = null;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         mPlayGames.setOnClickListener(this);
         mCheckWeather.setOnClickListener(this);
+        mWeatherATM.setOnClickListener(this);
         Typeface cursive = Typeface.createFromAsset(getAssets(), "fonts/cursive.ttf");
         mWelcome.setTypeface(cursive);
         getWeather("97210");
@@ -50,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (v == mCheckWeather){
             Intent intent = new Intent(MainActivity.this, WeatherAlarmClockActivity.class);
             startActivity(intent);
+        } else if (v == mWeatherATM){
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://openweathermap.org/city/5746545"));
+            startActivity(webIntent);
         }
     }
 
@@ -69,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void run() {
-                        MWeatherATM.setText(weather);
+                        mWeatherATM.setText(weather);
                     }
                 });
             }
