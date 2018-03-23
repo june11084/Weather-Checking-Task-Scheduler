@@ -3,12 +3,19 @@ package com.example.group.epicodusgames.services;
 import com.example.group.epicodusgames.Constants;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 public class WeatherService {
     public static void findWeather(String zip, Callback callback){
@@ -25,5 +32,23 @@ public class WeatherService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+    }
+
+    public String processResults(Response response){
+        String weather = null;
+        try {
+            String jsonData = response.body().string();
+            JSONObject weatherJSON = new JSONObject(jsonData);
+            JSONArray currentWeatherJSON = weatherJSON.getJSONArray("weather");
+            weather = currentWeatherJSON.getString(0);
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+        return weather;
     }
 }
