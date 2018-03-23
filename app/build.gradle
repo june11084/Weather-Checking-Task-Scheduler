@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'OPENWEATHER_TOKEN', OpenweatherApiKey
+    }
 }
 
 dependencies {
@@ -32,4 +36,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.android.support:gridlayout-v7:26.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
 }

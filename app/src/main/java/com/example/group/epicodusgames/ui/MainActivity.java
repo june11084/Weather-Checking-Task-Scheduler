@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames;
+package com.example.group.epicodusgames.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.group.epicodusgames.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

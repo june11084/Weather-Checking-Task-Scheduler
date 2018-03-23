@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames;
+package com.example.group.epicodusgames.adapters;
 
 
 import android.content.Context;

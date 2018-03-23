@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames;
+package com.example.group.epicodusgames.ui;
 
 import android.content.ClipData;
 import android.content.Context;
@@ -23,13 +23,14 @@ import android.widget.EditText;
 
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.group.epicodusgames.adapters.BoggleActivityArrayAdapter;
+import com.example.group.epicodusgames.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -63,27 +64,6 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
         mEditText.setOnEditorActionListener(this);
         BoggleActivityArrayAdapter adapter = new BoggleActivityArrayAdapter(this, android.R.layout.simple_list_item_1, usedWords);
         mWordLog.setAdapter(adapter);
-        mWordLog.setOnTouchListener(new ListView.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Disallow ScrollView to intercept touch events.
-                        v.getParent().requestDisallowInterceptTouchEvent(true);
-                        break;
-
-                    case MotionEvent.ACTION_UP:
-                        // Allow ScrollView to intercept touch events.
-                        v.getParent().requestDisallowInterceptTouchEvent(false);
-                        break;
-                }
-
-                // Handle ListView touch events.
-                v.onTouchEvent(event);
-                return true;
-            }
-        });
     }
 
     @Override
