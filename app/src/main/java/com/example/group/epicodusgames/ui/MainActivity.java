@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("message", "Game List");
             startActivity(intent);
         } else if (v == mCheckWeather){
-            Toast.makeText(this,"Not Implemented",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, WeatherAlarmClockActivity.class);
+            startActivity(intent);
         }
     }
 }
