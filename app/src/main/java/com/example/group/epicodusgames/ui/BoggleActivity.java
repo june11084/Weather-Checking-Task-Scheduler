@@ -207,9 +207,6 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
                                 newGame();
                             }
                         });
-
-                AlertDialog alert11 = builder.create();
-                alert11.show();
             }
         }.start();
     }

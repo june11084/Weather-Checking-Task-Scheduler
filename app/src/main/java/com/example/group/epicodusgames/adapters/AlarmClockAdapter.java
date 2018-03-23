@@ -9,13 +9,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.example.group.epicodusgames.ui.AlarmClockPageFragment;
 
 
-/**
- * Created by june1 on 3/23/2018.
- */
-
 public class AlarmClockAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
+    private String tabTitles[] = new String[] { "Alarm", "Timer", "StopWatch" };
     private Context context;
 
     public AlarmClockAdapter(FragmentManager fm, Context context) {
