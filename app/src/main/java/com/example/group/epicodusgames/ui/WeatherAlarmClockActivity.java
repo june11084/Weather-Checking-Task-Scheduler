@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.group.epicodusgames.R;
 
-public class WeatherActivity extends AppCompatActivity {
+public class WeatherAlarmClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

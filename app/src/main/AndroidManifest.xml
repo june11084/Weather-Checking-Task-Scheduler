@@ -30,7 +30,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.group.epicodusgames.ui.SelectGameActivity" />
         </activity>
-        <activity android:name=".ui.WeatherActivity"></activity>
+        <activity android:name=".ui.WeatherAlarmClockActivity"></activity>
     </application>
 
 </manifest>

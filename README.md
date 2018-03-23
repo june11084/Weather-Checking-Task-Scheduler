@@ -1,6 +1,6 @@
 # EpicodusGames
 
-This is an Epicodus project where I gather silly games we've encountered as practices throughout the course and building them out in Android studio, with android specific layout and functionalities.
+This is an Epicodus project where I gather silly games we've encountered as practices throughout the course and building them out in Android studio, with android specific layout and functionalities. This app will have either have additional feature or become one completely that help making the user's life more convenient, such as an alarm clock with integrated weather checking functionality.
 ```
 Week 1
 #Boggle
@@ -16,6 +16,17 @@ Week 1
             2. Submitting a word or pressing Back Button will cancel the timer.
          * At the end of round, user will see their score, which is calculated by the number of correct words they got.
 Grid layout Reference http://patrick-iv.github.io/2015/05/04/drag-n-drop/
+```
+
+```
+Week 2 - week 4
+#Alarm Clock with weather checking
+1.This is an alarm clock that:
+         * Works as a normal alarm clock.
+         * Checks real time weather 30 minutes before the alarm time, and if is raining, it will push the timer 10 minutes
+         (user defined) earlier.
+         * play different alarm ringtone(user defined) depending on the weather.
+         * Saves user defined zip code for weather checking either locally or with Firebase.
 ```
 
 
