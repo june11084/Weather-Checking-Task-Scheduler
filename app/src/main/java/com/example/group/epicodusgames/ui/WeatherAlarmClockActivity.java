@@ -22,7 +22,6 @@ import okhttp3.Response;
 public class WeatherAlarmClockActivity extends AppCompatActivity {
     @BindView(R.id.viewpager) ViewPager mViewPager;
     @BindView(R.id.sliding_tabs) TabLayout MSliding_Tabs;
-    String weather = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,27 +32,5 @@ public class WeatherAlarmClockActivity extends AppCompatActivity {
         mViewPager.setAdapter(new AlarmClockAdapter(getSupportFragmentManager(),
                 WeatherAlarmClockActivity.this));
         MSliding_Tabs.setupWithViewPager(mViewPager);
-    }
-
-    private void getWeather(String zip) {
-        final WeatherService weatherService = new WeatherService();
-        weatherService.findWeather(zip, new Callback() {
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                weather = weatherService.processResults(response);
-                WeatherAlarmClockActivity.this.runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                    }
-                });
-            }
-        });
     }
 }

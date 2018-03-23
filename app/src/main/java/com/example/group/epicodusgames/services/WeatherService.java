@@ -38,9 +38,10 @@ public class WeatherService {
         String weather = null;
         try {
             String jsonData = response.body().string();
-            JSONObject weatherJSON = new JSONObject(jsonData);
-            JSONArray currentWeatherJSON = weatherJSON.getJSONArray("weather");
-            weather = currentWeatherJSON.getString(0);
+            JSONObject OpenWeatherJSON = new JSONObject(jsonData);
+            JSONArray currentWeatherJSON = OpenWeatherJSON.getJSONArray("weather");
+            JSONObject weatherNowJSON = currentWeatherJSON.getJSONObject(0);
+            weather = weatherNowJSON.getString("description");
 
         }
         catch (IOException e){
