@@ -34,6 +34,8 @@ Week 2 - week 4
 ## SET UP
 
 * clone repo https://github.com/june11084/EpicodusGames-Android.git
+* In the Constants.java class, replace "public static final String OPENWEATHER_TOKEN = BuildConfig.OPENWEATHER_TOKEN;"
+   with "public static final String OPENWEATHER_TOKEN = "<You Own API Key>"";"
 
 ### Techologies Used
 ```
