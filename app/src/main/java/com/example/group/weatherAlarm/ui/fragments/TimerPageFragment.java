@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import com.example.group.weatherAlarm.R;
 
 public class TimerPageFragment extends Fragment {
@@ -32,8 +33,8 @@ public class TimerPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.alarm_fragment_page, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment 2" + mPage);
+//        TextView textView = (TextView) view;
+//        textView.setText("Fragment 2" + mPage);
         return view;
     }
 }
