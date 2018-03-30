@@ -6,6 +6,7 @@ import com.example.group.weatherAlarm.Constants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.io.IOException;
 
@@ -33,7 +34,7 @@ public class WeatherService {
         call.enqueue(callback);
     }
 
-    public String processResults(Response response){
+    public String getWeather(Response response){
         String weather = null;
         try {
             String jsonData = response.body().string();
@@ -50,5 +51,23 @@ public class WeatherService {
             e.printStackTrace();
         }
         return weather;
+    }
+
+    public String getLocation(Response response){
+        String location = null;
+        try {
+            String jsonData = response.body().string();
+            JSONObject LocationJSON = new JSONObject(jsonData);
+            //JSONObject LocationJSON = OpenWeatherJSON.getJSONObject("name");
+            location = LocationJSON.getString("name");
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+        return location;
     }
 }

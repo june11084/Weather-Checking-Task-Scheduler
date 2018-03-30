@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.checkWeather) Button mCheckWeather;
     @BindView(R.id.welcome) TextView mWelcome;
     @BindView(R.id.weatherATM) TextView mWeatherATM;
+    @BindView(R.id.locationATM) TextView mLocationATM;
 
     String weather = null;
+    String location = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.action_logout) {
             logout();
             return true;
+        } else if (id == R.id.action_location){
+            changeLocation();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -81,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void logout() {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getBaseContext(), LoginActivity.class));
+        finish();
+    }
+
+    private void changeLocation(){
+
     }
 
     private void getWeather(String zip) {
@@ -94,12 +103,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                weather = weatherService.processResults(response);
+                weather = weatherService.getWeather(response);
+                location = weatherService.getLocation(response);
                 MainActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
                         mWeatherATM.setText(weather);
+                        mLocationATM.setText(location);
                     }
                 });
             }

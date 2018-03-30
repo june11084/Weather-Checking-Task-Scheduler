@@ -6,4 +6,10 @@
         android:title="Logout"
         android:visible="true"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_location"
+        android:title="Location"
+        android:visible="true"
+        app:showAsAction="never" />
 </menu>
