@@ -69,7 +69,7 @@ public class BoggleActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onBackPressed() {
         timer.cancel();
-        startActivity(new Intent(BoggleActivity.this, SelectGameActivity.class));
+        finish();
     }
 
     @Override

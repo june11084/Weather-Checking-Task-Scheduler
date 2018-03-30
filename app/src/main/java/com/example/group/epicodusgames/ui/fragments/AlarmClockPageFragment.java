@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames.ui;
+package com.example.group.epicodusgames.ui.fragments;
 
 
 
@@ -35,9 +35,8 @@ public class AlarmClockPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_page, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
+        View view = inflater.inflate(R.layout.alarm_fragment_page, container, false);
+
         return view;
     }
 }

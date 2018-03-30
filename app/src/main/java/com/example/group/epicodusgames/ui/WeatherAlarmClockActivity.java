@@ -4,20 +4,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.TabLayout;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.example.group.epicodusgames.R;
-import com.example.group.epicodusgames.adapters.AlarmClockAdapter;
-import com.example.group.epicodusgames.services.WeatherService;
-
-import java.io.IOException;
+import com.example.group.epicodusgames.adapters.WeatherAlarmClockAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class WeatherAlarmClockActivity extends AppCompatActivity {
     @BindView(R.id.viewpager) ViewPager mViewPager;
@@ -29,7 +21,7 @@ public class WeatherAlarmClockActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather_alarm_clock);
         ButterKnife.bind(this);
 
-        mViewPager.setAdapter(new AlarmClockAdapter(getSupportFragmentManager(),
+        mViewPager.setAdapter(new WeatherAlarmClockAdapter(getSupportFragmentManager(),
                 WeatherAlarmClockActivity.this));
         MSliding_Tabs.setupWithViewPager(mViewPager);
     }
