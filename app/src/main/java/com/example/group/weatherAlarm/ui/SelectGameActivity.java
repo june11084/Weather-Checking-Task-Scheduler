@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames.ui;
+package com.example.group.weatherAlarm.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.group.epicodusgames.R;
-import com.example.group.epicodusgames.adapters.SelectGameArrayAdapter;
+import com.example.group.weatherAlarm.R;
+import com.example.group.weatherAlarm.adapters.SelectGameArrayAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

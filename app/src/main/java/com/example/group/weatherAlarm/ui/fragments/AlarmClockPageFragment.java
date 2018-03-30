@@ -1,23 +1,21 @@
-package com.example.group.epicodusgames.ui.fragments;
-
+package com.example.group.weatherAlarm.ui.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.group.epicodusgames.R;
+import com.example.group.weatherAlarm.R;
 
-public class TimerPageFragment extends Fragment {
+public class AlarmClockPageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
     private int mPage;
 
-    public static TimerPageFragment newInstance(int page) {
+    public static AlarmClockPageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        TimerPageFragment fragment = new TimerPageFragment();
+        AlarmClockPageFragment fragment = new AlarmClockPageFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -32,8 +30,7 @@ public class TimerPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.alarm_fragment_page, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment 2" + mPage);
+
         return view;
     }
 }

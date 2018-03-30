@@ -1,12 +1,14 @@
-package com.example.group.epicodusgames.ui;
+package com.example.group.weatherAlarm.ui;
 
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import android.support.design.widget.TabLayout;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.example.group.epicodusgames.R;
-import com.example.group.epicodusgames.adapters.WeatherAlarmClockAdapter;
+import com.example.group.weatherAlarm.R;
+import com.example.group.weatherAlarm.adapters.WeatherAlarmClockAdapter;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

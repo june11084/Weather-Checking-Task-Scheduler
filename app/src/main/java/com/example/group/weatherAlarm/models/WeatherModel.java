@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames.models;
+package com.example.group.weatherAlarm.models;
 
 
 public class WeatherModel {

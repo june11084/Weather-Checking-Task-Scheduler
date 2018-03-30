@@ -1,4 +1,6 @@
-package com.example.group.epicodusgames;
+package com.example.group.weatherAlarm;
+
+import com.example.group.weatherAlarm.BuildConfig;
 
 public class Constants {
     public static final String OPENWEATHER_TOKEN = BuildConfig.OPENWEATHER_TOKEN;

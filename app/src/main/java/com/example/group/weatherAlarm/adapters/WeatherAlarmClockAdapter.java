@@ -1,15 +1,14 @@
-package com.example.group.epicodusgames.adapters;
+package com.example.group.weatherAlarm.adapters;
 
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.group.epicodusgames.ui.fragments.AlarmClockPageFragment;
-import com.example.group.epicodusgames.ui.fragments.StopwatchPageFragment;
-import com.example.group.epicodusgames.ui.fragments.TimerPageFragment;
+import com.example.group.weatherAlarm.ui.fragments.TimerPageFragment;
+import com.example.group.weatherAlarm.ui.fragments.AlarmClockPageFragment;
+import com.example.group.weatherAlarm.ui.fragments.StopwatchPageFragment;
 
 
 public class WeatherAlarmClockAdapter extends FragmentStatePagerAdapter {

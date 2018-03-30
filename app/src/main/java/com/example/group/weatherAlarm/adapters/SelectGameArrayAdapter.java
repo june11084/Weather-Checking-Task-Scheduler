@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames.adapters;
+package com.example.group.weatherAlarm.adapters;
 
 
 import android.content.Context;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.group.epicodusgames.ui.SelectGameActivity">
+    tools:context="com.example.group.weatherAlarm.ui.SelectGameActivity">
 
     <ListView
         android:id="@+id/listView"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.group.epicodusgames.ui.WeatherAlarmClockActivity">
+    tools:context="com.example.group.weatherAlarm.ui.WeatherAlarmClockActivity">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"

@@ -1,4 +1,4 @@
-package com.example.group.epicodusgames.ui;
+package com.example.group.weatherAlarm.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,10 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.group.epicodusgames.R;
-import com.example.group.epicodusgames.services.WeatherService;
+import com.example.group.weatherAlarm.R;
+import com.example.group.weatherAlarm.services.WeatherService;
 
 import java.io.IOException;
 

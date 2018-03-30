@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "993813688737",
+    "firebase_url": "https://weatheralarm-c5f20.firebaseio.com",
+    "project_id": "weatheralarm-c5f20",
+    "storage_bucket": "weatheralarm-c5f20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993813688737:android:4cb04dec64e93b91",
+        "android_client_info": {
+          "package_name": "com.example.group.weatherAlarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993813688737-lmmq3r8ajn1phoqoo7u3e5lc1a0sin46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHX6Q29bJBRhUU33ooKNmX52UiNXrVTsU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

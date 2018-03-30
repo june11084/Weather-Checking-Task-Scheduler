@@ -1,6 +1,6 @@
-package com.example.group.epicodusgames.services;
+package com.example.group.weatherAlarm.services;
 
-import com.example.group.epicodusgames.Constants;
+import com.example.group.weatherAlarm.Constants;
 
 
 import org.json.JSONArray;
@@ -8,7 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
