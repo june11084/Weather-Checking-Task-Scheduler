@@ -104,12 +104,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 weather = weatherService.getWeather(response);
-                location = weatherService.getLocation(response);
                 MainActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
                         mWeatherATM.setText(weather);
+                    }
+                });
+            }
+        });
+        weatherService.findWeather(zip, new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                location = weatherService.getLocation(response);
+                MainActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
                         mLocationATM.setText(location);
                     }
                 });

@@ -1,5 +1,7 @@
 package com.example.group.weatherAlarm.services;
 
+import android.util.Log;
+
 import com.example.group.weatherAlarm.Constants;
 
 
@@ -27,11 +29,11 @@ public class WeatherService {
 
         Request request= new Request.Builder()
                 .url(url)
-                .header("Authorization", Constants.OPENWEATHER_TOKEN)
                 .build();
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+        Log.v("URL",url);
     }
 
     public String getWeather(Response response){
@@ -57,9 +59,10 @@ public class WeatherService {
         String location = null;
         try {
             String jsonData = response.body().string();
-            JSONObject LocationJSON = new JSONObject(jsonData);
-            //JSONObject LocationJSON = OpenWeatherJSON.getJSONObject("name");
-            location = LocationJSON.getString("name");
+            Log.v("json", jsonData);
+            JSONObject OpenWeatherJSON = new JSONObject(jsonData);
+
+            location = OpenWeatherJSON.getString("name");
 
         }
         catch (IOException e){
