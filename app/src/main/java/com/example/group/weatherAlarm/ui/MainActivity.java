@@ -1,8 +1,12 @@
 package com.example.group.weatherAlarm.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,8 +14,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.group.weatherAlarm.Constants;
 import com.example.group.weatherAlarm.R;
 import com.example.group.weatherAlarm.services.WeatherService;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +32,9 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MyActivity";
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mSavedLocation;
     @BindView(R.id.playGames) Button mPlayGames;
     @BindView(R.id.checkWeather) Button mCheckWeather;
     @BindView(R.id.welcome) TextView mWelcome;
@@ -45,7 +54,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mWeatherATM.setOnClickListener(this);
         Typeface cursive = Typeface.createFromAsset(getAssets(), "fonts/cursive.ttf");
         mWelcome.setTypeface(cursive);
-        getWeather("97210");
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+        mSavedLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        getWeather(mSavedLocation);
     }
 
     @Override
@@ -88,8 +100,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         finish();
     }
 
-    private void changeLocation(){
+    private void changeLocation() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        final EditText input = new EditText(this);
+        builder.setView(input);
+        builder.setTitle("Enter Location:");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String newLocation = input.getText().toString();
+                addToSharedPreferences(newLocation);
+                getWeather(newLocation);
+            }
+        });
 
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        });
+        builder.show();
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 
     private void getWeather(String zip) {
@@ -104,6 +136,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 weather = weatherService.getWeather(response);
+                if(weather == null){
+                    changeLocation();
+                }
                 MainActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
@@ -127,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void run() {
-                        mLocationATM.setText(location);
+                        mLocationATM.setText(location+":");
                     }
                 });
             }
