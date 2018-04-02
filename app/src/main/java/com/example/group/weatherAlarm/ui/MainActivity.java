@@ -136,13 +136,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 weather = weatherService.getWeather(response);
-                if(weather == null){
-                    changeLocation();
-                }
                 MainActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        if(weather == null){
+                            changeLocation();
+                        }
                         mWeatherATM.setText(weather);
                     }
                 });
