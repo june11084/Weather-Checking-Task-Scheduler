@@ -41,6 +41,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.LoginActivity" />
         </activity>
+        <receiver android:name=".ui.AlarmReceiver" android:process=":remote" />
     </application>
 
 </manifest>
