@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+
 import com.example.group.weatherAlarm.R;
 import com.example.group.weatherAlarm.adapters.WeatherAlarmClockAdapter;
 

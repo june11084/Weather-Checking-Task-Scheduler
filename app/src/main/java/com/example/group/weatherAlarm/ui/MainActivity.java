@@ -110,11 +110,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String newLocation = input.getText().toString();
                 addToSharedPreferences(newLocation);
                 getWeather(newLocation);
+                dialog.dismiss();
             }
         });
 
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
             }
         });
         builder.show();
