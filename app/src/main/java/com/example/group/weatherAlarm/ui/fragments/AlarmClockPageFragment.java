@@ -5,29 +5,30 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TimePicker;
-
 import com.example.group.weatherAlarm.R;
+import com.example.group.weatherAlarm.models.AlarmModel;
 import com.example.group.weatherAlarm.ui.AlarmReceiver;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AlarmClockPageFragment extends Fragment implements TimePickerDialog.OnTimeSetListener,View.OnClickListener {
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
     @BindView(R.id.addAlarmFa) FloatingActionButton mAddAlarmFa;
     public static final String ARG_PAGE = "ARG_PAGE";
-
+    private ArrayList<AlarmModel> mAlarms = new ArrayList<>();
     private int mPage;
 
     public static AlarmClockPageFragment newInstance(int page) {
@@ -42,6 +43,8 @@ public class AlarmClockPageFragment extends Fragment implements TimePickerDialog
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mEditor = mSharedPreferences.edit();
     }
 
     @Override
@@ -75,6 +78,9 @@ public class AlarmClockPageFragment extends Fragment implements TimePickerDialog
             //Today Set time passed, count to tomorrow
             calSet.add(Calendar.DATE, 1);
         }
+        AlarmModel alarm = new AlarmModel(calSet.toString());
+
+        mAlarms.add(alarm);
         setAlarm(calSet);
     }
 
@@ -85,6 +91,7 @@ public class AlarmClockPageFragment extends Fragment implements TimePickerDialog
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), this.getTargetRequestCode(), intent, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
     }
+
 
     public void showTimePickerDialog(View view) {
         TimePickerFragment newFragment = new TimePickerFragment();

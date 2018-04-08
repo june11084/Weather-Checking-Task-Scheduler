@@ -6,11 +6,18 @@ package com.example.group.weatherAlarm.models;
 
 public class AlarmModel {
     String time;
+    String pushId;
     public AlarmModel(String time){
         this.time = time;
     }
 
     public String getTime(){
         return time;
+    }
+    public String getPushId() {
+        return pushId;
+    }
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }
