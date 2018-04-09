@@ -4,15 +4,16 @@ package com.example.group.weatherAlarm.models;
  * Created by june1 on 3/30/2018.
  */
 
-public class AlarmModel {
-    String time;
+public class TaskModel {
+    String task;
     String pushId;
-    public AlarmModel(String time){
-        this.time = time;
+    public TaskModel(){};
+    public TaskModel(String task){
+        this.task = task;
     }
 
-    public String getTime(){
-        return time;
+    public String getTask(){
+        return task;
     }
     public String getPushId() {
         return pushId;

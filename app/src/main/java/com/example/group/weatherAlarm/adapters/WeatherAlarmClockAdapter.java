@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.group.weatherAlarm.ui.fragments.TimerPageFragment;
-import com.example.group.weatherAlarm.ui.fragments.AlarmClockPageFragment;
+import com.example.group.weatherAlarm.ui.fragments.TasksPageFragment;
 import com.example.group.weatherAlarm.ui.fragments.StopwatchPageFragment;
 
 
@@ -31,7 +31,7 @@ public class WeatherAlarmClockAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = AlarmClockPageFragment.newInstance(position + 0);
+                fragment = TasksPageFragment.newInstance(position + 0);
                 break;
             case 1:
                 fragment = TimerPageFragment.newInstance(position + 1 );

@@ -4,15 +4,15 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.group.weatherAlarm.models.AlarmModel;
+import com.example.group.weatherAlarm.models.TaskModel;
 import java.util.ArrayList;
 import butterknife.ButterKnife;
 
 public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.AlarmViewHolder>{
-    private ArrayList<AlarmModel> mAlarms = new ArrayList<>();
+    private ArrayList<TaskModel> mAlarms = new ArrayList<>();
     private Context mContext;
 
-    public AlarmListAdapter(Context context, ArrayList<AlarmModel> alarms){
+    public AlarmListAdapter(Context context, ArrayList<TaskModel> alarms){
         mAlarms = alarms;
         mContext = context;
     }
@@ -52,7 +52,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.Alar
             itemView.setOnClickListener(this);
         }
 
-        public void bindAlarm(AlarmModel alarm) {
+        public void bindAlarm(TaskModel alarm) {
         }
     }
 }

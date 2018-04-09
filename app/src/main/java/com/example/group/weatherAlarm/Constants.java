@@ -10,5 +10,5 @@ public class Constants {
     public static final String OPENWEATHER_ZIP_QUERY_PARAMETER = "zip";
     public static final String OPENWEATHER_API_KEY_QUERY_PARAMETER = "appid";
     public static final String PREFERENCES_LOCATION_KEY = "location";
-    public static final ArrayList<String> PREFERENCES_ALARMS = new ArrayList<>();
+    public static final String FIREBASE_CHILD_TASKS = " tasks";
 }
