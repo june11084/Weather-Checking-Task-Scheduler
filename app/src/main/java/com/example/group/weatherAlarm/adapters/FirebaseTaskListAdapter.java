@@ -1,11 +1,5 @@
 package com.example.group.weatherAlarm.adapters;
-
-
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +23,6 @@ public class FirebaseTaskListAdapter extends FirebaseRecyclerAdapter<TaskModel, 
     private Context mContext;
     private ChildEventListener mChildEventListener;
     private ArrayList<TaskModel> mTasks = new ArrayList<>();
-    private int mOrientation;
 
     public FirebaseTaskListAdapter(FirebaseRecyclerOptions<TaskModel> options,
                                          Query ref, View.OnDragListener onStartDragListener, Context context) {

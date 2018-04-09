@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mSavedLocation;
-    @BindView(R.id.playGames) Button mPlayGames;
     @BindView(R.id.checkWeather) Button mCheckWeather;
     @BindView(R.id.welcome) TextView mWelcome;
     @BindView(R.id.weatherATM) TextView mWeatherATM;
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        mPlayGames.setOnClickListener(this);
         mCheckWeather.setOnClickListener(this);
         mWeatherATM.setOnClickListener(this);
         Typeface cursive = Typeface.createFromAsset(getAssets(), "fonts/cursive.ttf");
@@ -62,11 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v == mPlayGames){
-            Intent intent = new Intent(MainActivity.this, SelectGameActivity.class);
-            intent.putExtra("message", "Game List");
-            startActivity(intent);
-        } else if (v == mCheckWeather){
+         if (v == mCheckWeather){
             Intent intent = new Intent(MainActivity.this, WeatherAlarmClockActivity.class);
             startActivity(intent);
         } else if (v == mWeatherATM){

@@ -1,5 +1,6 @@
 package com.example.group.weatherAlarm.ui.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -120,4 +121,5 @@ public class TasksPageFragment extends Fragment implements View.OnClickListener,
         mItemTouchHelper = new ItemTouchHelper(callback);
         mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
+
 }
