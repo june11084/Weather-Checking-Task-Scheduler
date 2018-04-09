@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EpicodusGames.iml" filepath="$PROJECT_DIR$/EpicodusGames.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeatherCheckingTasker.iml" filepath="$PROJECT_DIR$/WeatherCheckingTasker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
