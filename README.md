@@ -1,32 +1,25 @@
-# EpicodusGames
+# Weather-Checking Task Scheduler
 
-This is an Epicodus project where I gather silly games we've encountered as practices throughout the course and building them out in Android studio, with android specific layout and functionalities. This app will have either have additional feature or become one completely that help making the user's life more convenient, such as an alarm clock with integrated weather checking functionality.
-```
-Week 1
-#Boggle
-1.Epicodus's version of Boggle is a game that:
-         * Randomly generates string of 16 letters, with 2 or more letters being vowels.
-         * User can make English words from the 8 letters and input it into the blank field below and submit the word for checking.
-            1.The word must be 3 letters or longer, a valid English word, and only contains letters from the generated string.
-         * The user can drag-drop to rearrange the string letters for their own convenience.
-         * The user can press Enter from the keyboard directly to submit the word, so that the user does not have to hide the keyboard after typing.
-         * The user can manually click a button to start a new round/string.
-         * Each round is time limited by a count-down-timer.
-            1. New round or string will reset the timer.
-            2. Submitting a word or pressing Back Button will cancel the timer.
-         * At the end of round, user will see their score, which is calculated by the number of correct words they got.
-Grid layout Reference http://patrick-iv.github.io/2015/05/04/drag-n-drop/
-```
+This is an Epicodus project that works as a to-do list tracker with a weather checking functionality, built with android specific layout and functionalities. This app utilizes fragments for recycler-view adapters and popup dialogs, Firebase for data persistence, and OpenWeatherMap's API for returning current weather.  
 
 ```
-Week 2 - week 4
-#Alarm Clock with weather checking
-1.This is an alarm clock that:
+Week 1 - week 4
+#Task Scheduler with weather checking
+1.This is task scheduler that:
+         * User can navigate through different tabs.
+         * User can create an account and log in/log out for user specific data.
+         * User can create a time specific task and save it to firebase.
+         * User can view saved tasks in a list.
+         * User can rearrange task order by dragging and dropping.
+         * User can delete task from database by using swipe gesture on a task item.
+         * Saves user defined zip code for weather checking either locally with shared preference.
+
+2.Additional functionalities in the future:
          * Works as a normal alarm clock.
+         * Have Timer and Stopwatch functionality.
          * Checks real time weather 30 minutes before the alarm time, and if is raining, it will push the timer 10 minutes
          (user defined) earlier.
          * play different alarm ringtone(user defined) depending on the weather.
-         * Saves user defined zip code for weather checking either locally or with Firebase.
 ```
 
 
@@ -39,7 +32,9 @@ Week 2 - week 4
 
 ### Techologies Used
 ```
-Android Studio 3.0
+Android Studio 3.0 https://developer.android.com/studio/index.html
+OpenWeatherMap API https://openweathermap.org/appid#get
+Firebase https://console.firebase.google.com
 ```
 
 ## Authors
