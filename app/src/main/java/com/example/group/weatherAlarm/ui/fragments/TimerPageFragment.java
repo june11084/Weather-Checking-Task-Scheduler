@@ -31,7 +31,7 @@ public class TimerPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alarm_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_tasks_page, container, false);
 //        TextView textView = (TextView) view;
 //        textView.setText("Fragment 2" + mPage);
         return view;
